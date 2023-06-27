@@ -1,0 +1,52 @@
+
+
+<div class="row">
+    <table class="table table-bordered table-striped my-4">
+    <thead>
+        <tr>
+            <th>id_venta</th>
+            <th>Serie</th>
+            <th>Numero</th>
+            <th>Total</th>
+            <th>Fecha</th>
+
+            <th>Detalle de Venta</th>       
+            
+          
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let venta of cliente.ventas">
+            <td>{{venta.id_venta}}</td>
+            <td>{{venta.serie}}</td>
+            <td>{{venta.numero}}</td>
+            <td>{{venta.total}}</td>
+            <td>{{venta.fecha}}</td>
+
+            <td>
+                <table>
+                    <tr>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Sub Total</th>
+                    <th>Producto</th>
+                </tr>
+                <tr *ngFor="let detalle of venta.detalleVentas">
+                    <td>{{detalle.cantidad}}</td>
+                    <td>{{detalle.precio}}</td>
+                    <td>{{detalle.sub_total}}</td>
+                    <td>{{detalle.producto.descripcion}}</td>
+                    
+                </tr>
+                </table>
+            </td>     
+            
+
+            
+        </tr>
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-primary" [routerLink]="['/clientes']">Lista Clientes</button>
+</div>
